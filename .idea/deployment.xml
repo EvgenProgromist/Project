@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="Test3">
+  <component name="PublishConfigData" autoUpload="Always" serverName="Test3">
     <serverData>
       <paths name="Test">
         <serverdata>
@@ -19,11 +19,10 @@
       <paths name="Test3">
         <serverdata>
           <mappings>
-            <mapping deploy="/www" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/bitrix" local="$PROJECT_DIR$" web="/" />
           </mappings>
           <excludedPaths>
-            <excludedPath path="/www/bitrix" />
-            <excludedPath local="true" path="$PROJECT_DIR$/bitrix" />
+            <excludedPath local="true" path="$PROJECT_DIR$" />
           </excludedPaths>
         </serverdata>
       </paths>
@@ -35,5 +34,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
