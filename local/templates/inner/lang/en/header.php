@@ -1,0 +1,2 @@
+<?php
+$MESS['HOME'] = 'Home';
