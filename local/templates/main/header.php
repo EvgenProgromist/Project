@@ -1,6 +1,6 @@
 <?
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
-$APPLICATION->SetTitle("Биржа недвижимости");
+$APPLICATION->SetTitle(GetMessage("PAGE_TITLE"));
 
 ?>
 <!DOCTYPE html>
@@ -12,22 +12,22 @@ $APPLICATION->SetTitle("Биржа недвижимости");
     <? $APPLICATION->ShowHead();?>
     <title><? $APPLICATION->ShowTitle()?></title>
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500">
+          <? $APPLICATION->AddHeadString('<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500"/>'); ?>
 
     <?
-    $APPLICATION->SetAdditionalCSS("/local/.default/fonts/icomoon/style.css");
-    $APPLICATION->SetAdditionalCSS("/local/.default/css/bootstrap.min.css");
-    $APPLICATION->SetAdditionalCSS("/local/.default/css/magnific-popup.css");
-    $APPLICATION->SetAdditionalCSS("/local/.default/css/jquery-ui.css");
-    $APPLICATION->SetAdditionalCSS("/local/.default/css/owl.carousel.min.css");
-    $APPLICATION->SetAdditionalCSS("/local/.default/css/owl.theme.default.css");
-    $APPLICATION->SetAdditionalCSS("/local/.default/css/bootstrap-datepicker.css");
-    $APPLICATION->SetAdditionalCSS("/local/.default/css/mediaelementplayer.css");
-    $APPLICATION->SetAdditionalCSS("/local/.default/css/animate.css");
-    $APPLICATION->SetAdditionalCSS("/local/.default/fonts/flaticon/font/flaticon.css");
-    $APPLICATION->SetAdditionalCSS("/local/.default/css/fl-bigmug-line.css");
-    $APPLICATION->SetAdditionalCSS("/local/.default/css/aos.css");
-    $APPLICATION->SetAdditionalCSS("/local/.default/css/style.css");
+    $APPLICATION->SetAdditionalCSS("/local/templates/.default/fonts/icomoon/style.css");
+    $APPLICATION->SetAdditionalCSS("/local/templates/.default/css/bootstrap.min.css");
+    $APPLICATION->SetAdditionalCSS("/local/templates/.default/css/magnific-popup.css");
+    $APPLICATION->SetAdditionalCSS("/local/templates/.default/css/jquery-ui.css");
+    $APPLICATION->SetAdditionalCSS("/local/templates/.default/css/owl.carousel.min.css");
+    $APPLICATION->SetAdditionalCSS("/local/templates/.default/css/owl.theme.default.css");
+    $APPLICATION->SetAdditionalCSS("/local/templates/.default/css/bootstrap-datepicker.css");
+    $APPLICATION->SetAdditionalCSS("/local/templates/.default/css/mediaelementplayer.css");
+    $APPLICATION->SetAdditionalCSS("/local/templates/.default/css/animate.css");
+    $APPLICATION->SetAdditionalCSS("/local/templates/.default/fonts/flaticon/font/flaticon.css");
+    $APPLICATION->SetAdditionalCSS("/local/templates/.default/css/fl-bigmug-line.css");
+    $APPLICATION->SetAdditionalCSS("/local/templates/.default/css/aos.css");
+    $APPLICATION->SetAdditionalCSS("/local/templates/.default/css/style.css");
     ?>
 </head>
 
@@ -53,9 +53,6 @@ $APPLICATION->SetTitle("Биржа недвижимости");
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-6 col-md-6">
-                    <p class="mb-0">
-                        <a href="#" class="mr-3"><span class="text-black fl-bigmug-line-phone351"></span> <span
-                                    class="d-none d-md-inline-block ml-2">
                                 <?$APPLICATION->IncludeComponent(
                                     "bitrix:main.include",
                                     "",
@@ -64,25 +61,22 @@ $APPLICATION->SetTitle("Биржа недвижимости");
                                         "AREA_FILE_SHOW" => "file",
                                         "AREA_FILE_SUFFIX" => "inc",
                                         "EDIT_TEMPLATE" => "",
-                                        "PATH" => "/include/phone.php"
+                                        "PATH" => "/include/phone.php",
+                                        "NO-PARAGRAPH" => "Y"
+                                    )
+                                );
+                                    $APPLICATION->IncludeComponent(
+                                    "bitrix:main.include",
+                                    "",
+                                    Array(
+                                        "AREA_FILE_RECURSIVE" => "Y",
+                                        "AREA_FILE_SHOW" => "file",
+                                        "AREA_FILE_SUFFIX" => "inc",
+                                        "EDIT_TEMPLATE" => "",
+                                        "PATH" => "/include/mail.php",
+                                        "NO-PARAGRAPH" => "Y"
                                     )
                                 );?>
-                                </span></a>
-                        <a href="#"><span class="text-black fl-bigmug-line-email64"></span> <span
-                                    class="d-none d-md-inline-block ml-2">
-                                    <?$APPLICATION->IncludeComponent(
-                                        "bitrix:main.include",
-                                        "",
-                                        Array(
-                                            "AREA_FILE_RECURSIVE" => "Y",
-                                            "AREA_FILE_SHOW" => "file",
-                                            "AREA_FILE_SUFFIX" => "inc",
-                                            "EDIT_TEMPLATE" => "",
-                                            "PATH" => "/include/mail.php"
-                                        )
-                                    );?>
-                                </span></a>
-                    </p>
                 </div>
                 <div class="col-6 col-md-6 text-right">
                     <?$APPLICATION->IncludeComponent(
@@ -118,34 +112,27 @@ $APPLICATION->SetTitle("Биржа недвижимости");
                     );?>
                 </div>
                 <div class="col-4 col-md-4 col-lg-8">
-                    <nav class="site-navigation text-right text-md-right" role="navigation">
+                    <?$APPLICATION->IncludeComponent(
+	"bitrix:menu", 
+	"top_menu2",
+	array(
+		"ALLOW_MULTI_SELECT" => "N",
+		"CHILD_MENU_TYPE" => "left",
+		"DELAY" => "N",
+		"MAX_LEVEL" => "3",
+		"MENU_CACHE_GET_VARS" => array(
+		),
+		"MENU_CACHE_TIME" => "36000",
+		"MENU_CACHE_TYPE" => "A",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"ROOT_MENU_TYPE" => "top",
+		"USE_EXT" => "N",
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
+);?>
 
-                        <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#"
-                                                                                      class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-                        <?$APPLICATION->IncludeComponent(
-                            "bitrix:menu",
-                            ".default",
-                            array(
-                                "ALLOW_MULTI_SELECT" => "N",
-                                "CHILD_MENU_TYPE" => "left",
-                                "DELAY" => "N",
-                                "MAX_LEVEL" => "3",
-                                "MENU_CACHE_GET_VARS" => array(
-                                ),
-                                "MENU_CACHE_TIME" => "36000",
-                                "MENU_CACHE_TYPE" => "A",
-                                "MENU_CACHE_USE_GROUPS" => "Y",
-                                "ROOT_MENU_TYPE" => "top",
-                                "USE_EXT" => "N",
-                                "COMPONENT_TEMPLATE" => ".default"
-                            ),
-                            false
-                        );?>
-
-                    </nav>
                 </div>
-
-
             </div>
         </div>
     </div>

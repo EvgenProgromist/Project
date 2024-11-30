@@ -1,4 +1,2 @@
-<h3 class="footer-heading mb-4">About HomeSpace</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur reprehenderit vero atque,
-    consequatur id ratione, et non dignissimos culpa? Ut veritatis, quos illum totam quis blanditiis, minima
-    minus odio!</p>
+<h3 class="footer-heading mb-4"><?= GetMessage("ABOUT_HOMESPACE_HEADER") ?></h3>
+<p><?= GetMessage("ABOUT_HOMESPACE_TEXT") ?></p>

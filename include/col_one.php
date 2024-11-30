@@ -1,6 +1,5 @@
 <span class="icon mr-3 flaticon-house"></span>
 <div class="text">
-    <h2 class="mt-0">Wide Range of Properties</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit rem sint debitis porro quae dolorum neque.
-    </p>
+    <h2 class="mt-0"><?= GetMessage("COL_ONE_HEADER") ?></h2>
+    <p><?= GetMessage("COL_ONE_TEXT") ?></p>
 </div>
