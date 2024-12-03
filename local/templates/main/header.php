@@ -11,8 +11,7 @@ $APPLICATION->SetTitle(GetMessage("PAGE_TITLE"));
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <? $APPLICATION->ShowHead();?>
     <title><? $APPLICATION->ShowTitle()?></title>
-    <link rel="stylesheet"
-          <? $APPLICATION->AddHeadString('<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500"/>'); ?>
+    <? $APPLICATION->AddHeadString('<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500"/>'); ?>
 
     <?
     $APPLICATION->SetAdditionalCSS("/local/templates/.default/fonts/icomoon/style.css");

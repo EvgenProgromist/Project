@@ -4,93 +4,120 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 <footer class="site-footer">
     <div class="container">
+
         <div class="row">
+
             <div class="col-lg-4">
                 <div class="mb-5">
-                    <h3 class="footer-heading mb-4">About HomeSpace</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur reprehenderit vero atque,
-                        consequatur id ratione, et non dignissimos culpa? Ut veritatis, quos illum totam quis blanditiis, minima
-                        minus odio!</p>
+                    <h3 class="footer-heading mb-4"><?= GetMessage("ABOUT_HOMESPACE") ?></h3>
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_RECURSIVE" => "Y",
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/about_homespace.php"
+                        )
+                    ); ?>
                 </div>
-
-
-
             </div>
+
             <div class="col-lg-4 mb-5 mb-lg-0">
                 <div class="row mb-5">
                     <div class="col-md-12">
-                        <h3 class="footer-heading mb-4">Navigations</h3>
+                        <h3 class="footer-heading mb-4"><?= GetMessage("NAVIGATIONS") ?></h3>
                     </div>
                     <div class="col-md-6 col-lg-6">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Buy</a></li>
-                            <li><a href="#">Rent</a></li>
-                            <li><a href="#">Properties</a></li>
-                        </ul>
+                        <? $APPLICATION->IncludeComponent("bitrix:menu", "footer_menu", Array(
+                            "COMPONENT_TEMPLATE" => ".default",
+                            "ROOT_MENU_TYPE" => "top",
+                            "MENU_CACHE_TYPE" => "A",
+                            "MENU_CACHE_TIME" => "3600",
+                            "MENU_CACHE_USE_GROUPS" => "Y",
+                            "MENU_CACHE_GET_VARS" => "",
+                            "MAX_LEVEL" => "1",
+                            "CHILD_MENU_TYPE" => "",
+                            "USE_EXT" => "N",
+                            "DELAY" => "N",
+                            "ALLOW_MULTI_SELECT" => "N",
+                        ),
+                            false
+                        ); ?>
                     </div>
                     <div class="col-md-6 col-lg-6">
-                        <ul class="list-unstyled">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Terms</a></li>
-                        </ul>
+                        <? $APPLICATION->IncludeComponent("bitrix:menu", "footer_menu", Array(
+                            "COMPONENT_TEMPLATE" => ".default",
+                            "ROOT_MENU_TYPE" => "bottom",
+                            "MENU_CACHE_TYPE" => "A",
+                            "MENU_CACHE_TIME" => "3600",
+                            "MENU_CACHE_USE_GROUPS" => "Y",
+                            "MENU_CACHE_GET_VARS" => "",
+                            "MAX_LEVEL" => "1",
+                            "CHILD_MENU_TYPE" => "",
+                            "USE_EXT" => "N",
+                            "DELAY" => "N",
+                            "ALLOW_MULTI_SELECT" => "N",
+                        ),
+                            false
+                        ); ?>
                     </div>
                 </div>
-
-
             </div>
 
             <div class="col-lg-4 mb-5 mb-lg-0">
-                <h3 class="footer-heading mb-4">Follow Us</h3>
-
+                <h3 class="footer-heading mb-4"><?= GetMessage("FOLLOW_US") ?></h3>
                 <div>
-                    <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                    <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                    <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                    <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_RECURSIVE" => "Y",
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/follow_us.php"
+                        )
+                    ); ?>
                 </div>
-
-
-
             </div>
-
         </div>
+
         <div class="row pt-5 mt-5 text-center">
             <div class="col-md-12">
                 <p>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;
-                    <?php echo date('Y'); ?> All rights reserved | This template is made with
-                    <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                                                                                    target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_RECURSIVE" => "Y",
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/copyright.php"
+                        )
+                    ); ?>
                 </p>
             </div>
-
         </div>
     </div>
 </footer>
 
-</div>
-
 <?
-$APPLICATION->AddHeadScript('/local/.default/js/jquery-3.3.1.min.js');
-$APPLICATION->AddHeadScript('/local/.default/js/jquery-migrate-3.0.1.min.js');
-$APPLICATION->AddHeadScript('/local/.default/js/jquery-ui.js');
-$APPLICATION->AddHeadScript('/local/.default/js/popper.min.js');
-$APPLICATION->AddHeadScript('/local/.default/js/bootstrap.min.js');
-$APPLICATION->AddHeadScript('/local/.default/js/owl.carousel.min.js');
-$APPLICATION->AddHeadScript('/local/.default/js/mediaelement-and-player.min.js');
-$APPLICATION->AddHeadScript('/local/.default/js/jquery.stellar.min.js');
-$APPLICATION->AddHeadScript('/local/.default/js/jquery.countdown.min.js');
-$APPLICATION->AddHeadScript('/local/.default/js/jquery.magnific-popup.min.js');
-$APPLICATION->AddHeadScript('/local/.default/js/bootstrap-datepicker.min.js');
-$APPLICATION->AddHeadScript('/local/.default/js/aos.js');
-$APPLICATION->AddHeadScript('/local/.default/js/main.js');
+$APPLICATION->AddHeadScript('/local/templates/.default/js/jquery-3.3.1.min.js');
+$APPLICATION->AddHeadScript('/local/templates/.default/js/jquery-migrate-3.0.1.min.js');
+$APPLICATION->AddHeadScript('/local/templates/.default/js/jquery-ui.js');
+$APPLICATION->AddHeadScript('/local/templates/.default/js/popper.min.js');
+$APPLICATION->AddHeadScript('/local/templates/.default/js/bootstrap.min.js');
+$APPLICATION->AddHeadScript('/local/templates/.default/js/owl.carousel.min.js');
+$APPLICATION->AddHeadScript('/local/templates/.default/js/mediaelement-and-player.min.js');
+$APPLICATION->AddHeadScript('/local/templates/.default/js/jquery.stellar.min.js');
+$APPLICATION->AddHeadScript('/local/templates/.default/js/jquery.countdown.min.js');
+$APPLICATION->AddHeadScript('/local/templates/.default/js/jquery.magnific-popup.min.js');
+$APPLICATION->AddHeadScript('/local/templates/.default/js/bootstrap-datepicker.min.js');
+$APPLICATION->AddHeadScript('/local/templates/.default/js/aos.js');
+$APPLICATION->AddHeadScript('/local/templates/.default/js/main.js');
 ?>
-
-</body>
 
 </html>
