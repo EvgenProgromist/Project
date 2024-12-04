@@ -120,4 +120,5 @@ $APPLICATION->AddHeadScript('/local/templates/.default/js/aos.js');
 $APPLICATION->AddHeadScript('/local/templates/.default/js/main.js');
 ?>
 
+</body>
 </html>

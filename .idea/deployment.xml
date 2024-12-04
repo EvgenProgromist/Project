@@ -19,11 +19,8 @@
       <paths name="Test3">
         <serverdata>
           <mappings>
-            <mapping deploy="/bitrix" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
-          <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$" />
-          </excludedPaths>
         </serverdata>
       </paths>
       <paths name="sftp://statkevich.study.mcart.ru:7704">

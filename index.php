@@ -1,8 +1,6 @@
 <?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-
 ?>
-
  <?
     $arrFilter = [
         "PROPERTY_PRIORITY_DAIL_VALUE" => "Y",
@@ -227,32 +225,36 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 				</div>
 			</div>
 		</div>
-		<div class="row">
 <?$APPLICATION->IncludeComponent(
-    "bitrix:news.line",
-    "newblog",
-    Array(
-        "ACTIVE_DATE_FORMAT" => "d.m.Y",
-        "CACHE_GROUPS" => "Y",
-        "CACHE_TIME" => "604800",
-        "CACHE_TYPE" => "A",
-        "COMPONENT_TEMPLATE" => ".default",
-        "DETAIL_URL" => "#SITE_DIR#/news/#ELEMENT_CODE#/", 
-        "FIELD_CODE" => array(
-            0 => "NAME",
-            1 => "PREVIEW_TEXT",
-            2 => "PREVIEW_PICTURE",
-        ),
-        "IBLOCKS" => array(0=>"1",),
-        "IBLOCK_TYPE" => "news",
-        "NEWS_COUNT" => "3",
-        "SORT_BY1" => "ACTIVE_FROM",
-        "SORT_BY2" => "SORT",
-        "SORT_ORDER1" => "DESC",
-        "SORT_ORDER2" => "ASC"
-    )
+	"bitrix:news.line", 
+	"newblog", 
+	array(
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "604800",
+		"CACHE_TYPE" => "A",
+		"COMPONENT_TEMPLATE" => "newblog",
+		"DETAIL_URL" => "#SITE_DIR#/o-servise/novosti/#ELEMENT_CODE#/",
+		"FIELD_CODE" => array(
+			0 => "NAME",
+			1 => "PREVIEW_TEXT",
+			2 => "PREVIEW_PICTURE",
+			3 => "",
+		),
+		"IBLOCKS" => array(
+			0 => "1",
+		),
+		"IBLOCK_TYPE" => "news",
+		"NEWS_COUNT" => "3",
+		"SORT_BY1" => "ACTIVE_FROM",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER1" => "DESC",
+		"SORT_ORDER2" => "ASC"
+	),
+	false
 );?>
-
+    </div>
+</div>
     <br><?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");
 ?>
