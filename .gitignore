@@ -1,2 +1,9 @@
 upload/
-/bitrix
+# Игнорировать папку bitrix и все ее содержимое
+/bitrix/*
+
+# Но не игнорировать папку sprint.migration в moduls
+!/bitrix/modules/sprint.migration/
+
+# Также нужно исключить все файлы в этой папке
+!/bitrix/modules/sprint.migration/**
