@@ -60,6 +60,23 @@ $APPLICATION->IncludeComponent(
 <br />
 <?php
 endif;
+
+// Получаем ID текущего пользователя
+global $USER;
+$userID = $USER->GetID();
+
+// Проверяем, включена ли фильтрация через параметр
+if ($arParams["FILTER_BY_USER"] === "Y") {
+    $arFilter["CREATED_BY"] = $userID; // Фильтруем по создателю
+}
+
+// Выборка данных
+$arResult = [];
+$rsElements = CIBlockElement::GetList([], $arFilter, false, false, ["ID", "NAME"]);
+while ($element = $rsElements->Fetch()) {
+    $arResult[] = $element;
+}
+
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"",
