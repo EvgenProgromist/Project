@@ -97,7 +97,7 @@ $APPLICATION->SetTitle(GetMessage("PAGE_TITLE"));
     <div class="site-navbar">
         <div class="container py-1">
             <div class="row align-items-center">
-                <div class="col-8 col-md-8 col-lg-4">
+                <div class="col-5 col-md-5 col-lg-1">
                     <?$APPLICATION->IncludeComponent(
                         "bitrix:main.include",
                         "",
@@ -110,7 +110,7 @@ $APPLICATION->SetTitle(GetMessage("PAGE_TITLE"));
                         )
                     );?>
                 </div>
-                <div class="col-4 col-md-4 col-lg-8">
+                <div class="col-5 col-md-5 col-lg-9">
                     <?$APPLICATION->IncludeComponent(
                         "bitrix:menu",
                         "top_menu2",
@@ -131,6 +131,9 @@ $APPLICATION->SetTitle(GetMessage("PAGE_TITLE"));
                         false
                     );?>
 
+                </div>
+                <div class="col-2 col-md-2 col-lg-2">
+                    <a href="/login/index.php">Войти на сайт</a>
                 </div>
             </div>
         </div>

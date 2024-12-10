@@ -66,7 +66,7 @@ $this->setFrameMode(true);
                                 <li>
                                     <span class="property-specs"><?= GetMessage("CREATION_DATE") ?></span>
                                     <span class="property-specs-number">
-                                        <?= FormatDateFromDB($arResult["ACTIVE_FROM"], "SHORT"); ?>
+                                        <?= $arResult["ACTIVE_FROM"]; ?>
                                     </span>
                                 </li>
                                 <li>

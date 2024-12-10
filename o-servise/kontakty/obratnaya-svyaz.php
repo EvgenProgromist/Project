@@ -5,16 +5,22 @@ $APPLICATION->SetTitle("Обратная связь");
     <div class="container">
         <div class="row">
 	 <?$APPLICATION->IncludeComponent(
-	"bitrix:main.feedback",
-	"feedback_service",
-	Array(
+	"bitrix:main.feedback", 
+	"feedback_service", 
+	array(
 		"EMAIL_TO" => "statkevich_rabota@mail.ru",
-		"EVENT_MESSAGE_ID" => array(0=>"7",),
+		"EVENT_MESSAGE_ID" => array(
+			0 => "7",
+		),
 		"OK_TEXT" => "Спасибо, ваше сообщение принято.",
-		"REQUIRED_FIELDS" => array(0=>"EMAIL",),
-		"USE_CAPTCHA" => "Y"
-	)
-     );?>
+		"REQUIRED_FIELDS" => array(
+			0 => "EMAIL",
+		),
+		"USE_CAPTCHA" => "Y",
+		"COMPONENT_TEMPLATE" => "feedback_service"
+	),
+	false
+);?>
  <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include", 
 	".default", 

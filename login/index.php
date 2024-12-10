@@ -2,14 +2,31 @@
 define("NEED_AUTH", true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 
-if (is_string($_REQUEST["backurl"]) && mb_strpos($_REQUEST["backurl"], "/") === 0)
-{
-	LocalRedirect($_REQUEST["backurl"]);
-}
+// ссылка для выхода из личного кабинета
+$logout = $APPLICATION->GetCurPageParam(
+    "logout=yes&" . bitrix_sessid_get(),
+    array(
+        "login",
+        "logout",
+        "register",
+        "forgot_password",
+        "change_password"
+    )
+);
 
-$APPLICATION->SetTitle("Вход на сайт");
 ?>
-<p>Вы зарегистрированы и успешно авторизовались.</p>
 
-<p><a href="<?=SITE_DIR?>">Вернуться на главную страницу</a></p>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+
+<? $APPLICATION->IncludeComponent(
+	"bitrix:system.auth.form", 
+	"form_login", 
+	array(
+		"FORGOT_PASSWORD_URL" => "/login/",
+		"PROFILE_URL" => "/login/profile.php",
+		"REGISTER_URL" => "/login/register.php",
+		"SHOW_ERRORS" => "N",
+		"COMPONENT_TEMPLATE" => "form_login"
+	),
+	false
+);
+?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,6 +1,11 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Мои объявления");
+
+$arrFilter = [
+    "FILTER_BY_USER" => "Y",
+];
+
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:news", 
 	"news", 

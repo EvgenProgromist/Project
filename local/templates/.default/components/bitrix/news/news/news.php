@@ -38,8 +38,8 @@ if($arParams["USE_SEARCH"]=="Y"):?>
 <br />
 <?php
 endif;
-if($arParams["USE_FILTER"]=="Y"):
-$APPLICATION->IncludeComponent(
+/*if($arParams["USE_FILTER"]=="Y"):
+$APPLICATION->IncludeComsponent(
 	"bitrix:catalog.filter",
 	"",
 	[
@@ -56,10 +56,10 @@ $APPLICATION->IncludeComponent(
 	$component,
 	['HIDE_ICONS' => 'Y']
 );
-?>
+*/?><!--
 <br />
-<?php
-endif;
+--><?php
+/*endif;*/
 
 // Получаем ID текущего пользователя
 global $USER;
@@ -81,6 +81,7 @@ $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"",
 	[
+        "PAGE_TITLE" => $arParams["PAGE_TITLE"],
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
 		"NEWS_COUNT" => $arParams["NEWS_COUNT"],

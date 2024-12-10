@@ -13,13 +13,20 @@
 $this->setFrameMode(true);
 ?>
 
+
+
+<?if($arParams["DISPLAY_TOP_PAGER"]):?>
+    <?=$arResult["NAV_STRING"]?><br />
+<?endif;
+?>
+
 <html lang="<?= LANGUAGE_ID ?>">
 <div class="site-section site-section-sm bg-light">
     <div class="container">
         <div class="row mb-5">
             <div class="col-12">
                 <div class="site-section-title">
-                    <h2><?= GetMessage("PAGE_TITLE_NEW_PROPERTIES") ?></h2>
+                    <h2><?= htmlspecialcharsbx($arParams["PAGE_TITLE"]) ?></h2>
                 </div>
             </div>
         </div>
@@ -125,9 +132,6 @@ $this->setFrameMode(true);
 <!--Фильтр-поисковик-->
 
     <div class="row mb-5">
-        <?if($arParams["DISPLAY_TOP_PAGER"]):?>
-            <?=$arResult["NAV_STRING"]?><br />
-        <?endif;?>
         <?foreach($arResult["ITEMS"] as $arItem):?>
             <?
             $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
@@ -186,9 +190,10 @@ $this->setFrameMode(true);
             </div>
         <?endforeach;?>
     </div>
+        <?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
+            <br /><?=$arResult["NAV_STRING"]?>
+        <?endif;?>
     </div>
 </div>
-    <?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
-        <br /><?=$arResult["NAV_STRING"]?>
-    <?endif;?>
+
 
